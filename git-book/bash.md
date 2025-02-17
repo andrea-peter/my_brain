@@ -93,6 +93,8 @@ rm file1.[a-c]
 
 ## Parameter expansion
 
+[https://www.gnu.org/software/bash/manual/html\_node/Shell-Parameter-Expansion.html](https://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html)
+
 #### ${parameter:-word}
 
 If `parameter` is unset or null the expansion of `word` is substituted (`word` can be an expansion), otherwise the value of `parameter` is substituted
@@ -137,7 +139,15 @@ this is some text
 
 ```
 
-### ${parameter%/}
+#### ${parameter%/}
+
+#### ${parameter#word}
+
+Pattern matching with **shortest** matching pattern deleted
+
+#### ${parameter##word}
+
+Pattern matching with **longest** matching pattern deleted
 
 
 

@@ -28,6 +28,27 @@ layout:
 * Event triggered
 * Hardware triggered
 
+## sysfs
+
+Files in `sysfs`  are automatically created according to:
+
+* `channel.type`
+* `channel.extended_name`
+* `channel.output`
+* ...
+
+### Directory
+
+`/sys/bus/iio/devices/iio:device<N>/`
+
+### Filename
+
+For raw values:Directory
+
+`{in|out}_{type}_{extended_name}_raw`
+
+
+
 ***
 
 Diagram sources:

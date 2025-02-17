@@ -30,6 +30,31 @@ Sometimes the `of_` prefix appears, this is because the device tree was introduc
 
 <figure><img src="../.gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
 
+## Aliases
+
+In the the root element can contain a `aliases` element, this alias is read by the kernel.
+
+For example:
+
+```
+/ {
+  aliases {
+    rtc0 = &rv3028;
+  };
+...
+```
+
+E.g. during RTC device allocation this is called
+
+```c
+static int rtc_device_get_id(struct device *dev)
+...
+    of_id = of_alias_get_id(dev->of_node, "rtc");
+...
+```
+
+it tries to allocate the id in the `alias` section, if the ID is already taken a warning in the kernel log is issued.
+
 ## Device tree compilation
 
 The program `dtc` can compile a device tree from source to binary

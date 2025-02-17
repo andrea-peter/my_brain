@@ -42,6 +42,14 @@ dkms build
 dkms install
 ```
 
+And the opposite:
+
+```
+dkms uninstall
+dkms unbuild
+dkms remove
+```
+
 ### dkms add
 
 Copies given sources to
@@ -59,6 +67,8 @@ Build takes place in
 ```
 
 ### dkms install
+
+Install a built module into the kernel it was built for
 
 ## dh\_dkms
 

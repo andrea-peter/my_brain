@@ -62,6 +62,7 @@
   * [Laundry cards](nfc/laundry-cards.md)
 * [Python](python/README.md)
   * [Pytest](python/pytest.md)
+* [qemu](qemu.md)
 * [Raspberry Pi](raspberry-pi.md)
 * [tmux](tmux.md)
 * [vim/nvim](vim-nvim/README.md)
