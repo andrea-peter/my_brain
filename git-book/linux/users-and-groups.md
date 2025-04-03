@@ -40,12 +40,12 @@ andrea:x:1000:
 ## /etc/passwd
 
 ```
-user nameqq
+user name
  |    password field (not used)
  |     | user ID (UID)
-  |     |  |  primary-group ID
-  |     |  |    |             home directory
-  |     |  |    |              | 
+ |     |  |  primary-group ID
+ |     |  |    |             home directory
+ |     |  |    |              | 
 andrea:x:1000:1000:Andrea,,,:/home/andrea:/bin/bash
 ```
 

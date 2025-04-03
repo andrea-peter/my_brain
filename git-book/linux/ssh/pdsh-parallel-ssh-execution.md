@@ -21,7 +21,7 @@ Execute commands via ssh in parallel
 ### Check kernel messages on all 1900 and 121 nodes
 
 ```sh
-pdsh -w1900.{0..5} -w121.{0,1} sudo dmesg | grep bmcu
+pdsh -R ssh -w1900.{0..5} -w121.{0,1} sudo dmesg | grep bmcu
 ```
 
 ### Better output

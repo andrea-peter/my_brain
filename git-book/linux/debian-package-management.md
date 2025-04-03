@@ -25,3 +25,9 @@ dpkg-query --status <package-name>
 ```
 dpkg-deb -c <mypackage.deb>
 ```
+
+#### Se dependencies of a package
+
+```
+apt-cache depends <package-name>
+```
