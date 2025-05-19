@@ -20,15 +20,20 @@ layout:
 
 [https://practical.li/neovim/reference/neovim/standard-path/](https://practical.li/neovim/reference/neovim/standard-path/)
 
-* Config: `~/.config.nvim/`
+* **Config**: `~/.cache/nvim/`
+* **Config**: `~/.config/nvim/`
   * User configs
-* Data: `~/.local/share/nvim/`
+* **Data**: `~/.local/share/nvim/`
   * Plugins
-* Run: `/tmp/nvim.user/xxx/`
-* State: `~/.local/state/nvim/`
+* **Run**: `/tmp/nvim.user/xxx/`
+* **State**: `~/.local/state/nvim/`
   * Logs
   * Sessions
   * Undo data
+
+### Where is
+
+* Mason packages: `<data-path>/mason`
 
 ## Mappings
 

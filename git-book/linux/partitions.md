@@ -27,3 +27,7 @@ sudo blkid
 ```bash
 sudo parted /dev/<partition> unit B p
 ```
+
+## ESP - EFI system partition
+
+Used by UEFI

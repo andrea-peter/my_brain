@@ -66,6 +66,7 @@
   * [Pytest](python/pytest.md)
 * [qemu](qemu.md)
 * [Raspberry Pi](raspberry-pi.md)
+* [Rust](rust.md)
 * [tmux](tmux.md)
 * [vim/nvim](vim-nvim/README.md)
   * [Lazyvim](vim-nvim/lazyvim.md)

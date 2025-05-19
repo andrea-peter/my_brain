@@ -33,3 +33,11 @@ Print the difference between the target state and the destination state for targ
 ### `forget`
 
 Remove targets from the source state, i.e. stop managing them
+
+## How to
+
+### Start synchronizing with repo
+
+```
+chezmoi init --apply git@github.com/pedrudehuere/dotfiles
+```
