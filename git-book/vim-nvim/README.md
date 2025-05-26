@@ -86,7 +86,20 @@ Try to detect file type
 
 
 
+## Marks
 
+`:help marks`
+
+* \[a-z]: Local to files
+* \[A-Z]: Global
+
+### Commands
+
+* `mC`: Create `C` mark
+* `'C`: Navigate to `C` mark
+* `marks`: List all marks
+* `marks {marks}`: List mentioned marks
+* `delm[arks] {marks}` : delete marks
 
 ## Navigate files
 

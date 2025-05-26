@@ -22,3 +22,11 @@ ARCH=arm64 make savedefconfig
 ```
 
 creates `defconfig` file which is the minimal/normalized config
+
+## Clean
+
+```
+make clean     -  Cleans some things
+make mrproper  -  Cleans everything except config
+make distclean -  Cleans everthing
+```

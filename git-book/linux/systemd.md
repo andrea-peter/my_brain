@@ -130,6 +130,10 @@ Logs can be queried with the `journalctl` command
 journalctl --since '2 minutes ago'
 ```
 
+```
+journalctl --since '2025-04-28 11:12:13'
+```
+
 #### For a specific boot
 
 ```
