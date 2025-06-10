@@ -35,6 +35,12 @@ $ cat /proc/sys/kernel/printk
 uame -r
 ```
 
+#### Get kernel command line
+
+```
+cat /proc/cmdline
+```
+
 #### Get configuration of running kernel
 
 Can be found in one of
@@ -55,6 +61,12 @@ modprobe configs
 
 ```
 dtc -I fs /sys/firmware/devicetree/base/
+```
+
+### Write message to kernel log
+
+```
+echo msg > /dev/kmsg
 ```
 
 ## Includes

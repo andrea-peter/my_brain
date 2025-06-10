@@ -26,7 +26,7 @@ pdsh -R ssh -w1900.{0..5} -w121.{0,1} sudo dmesg | grep bmcu
 
 ### Better output
 
-Pipe pdsh into dshbak, the `-c` option avoids printing duplicate output
+Pipe pdsh into dshbak, the `-c` option groups common output
 
 ```bash
 $ pdsh -w1906.{1,3,5} sudo erx-update-stm32 bmcu archive/BMCU-1.0.0.10.bin | dshbak -c

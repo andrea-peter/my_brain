@@ -14,6 +14,8 @@
   * [I2C](linux/i2c.md)
   * [Acronyms](linux/acronyms.md)
   * [AppArmor](linux/apparmor.md)
+  * [Boot process](linux/boot-process/README.md)
+    * [Secure boot](linux/boot-process/secure-boot.md)
   * [coredump](linux/coredump.md)
   * [Cross compiling](linux/cross-compiling.md)
   * [Date and time](linux/date-and-time.md)

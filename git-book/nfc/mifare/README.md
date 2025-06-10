@@ -35,4 +35,4 @@ More hardware and software features than MIFARE Classic, comes with an OS and di
 
 ## Card UID
 
-<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
