@@ -21,6 +21,7 @@
   * [Date and time](linux/date-and-time.md)
   * [Debian package management](linux/debian-package-management.md)
   * [Device Tree](linux/device-tree.md)
+  * [Drivers](linux/drivers.md)
   * [Environment variables](linux/environment-variables.md)
   * [Filesystem](linux/filesystem/README.md)
     * [File permissions](linux/filesystem/file-permissions.md)

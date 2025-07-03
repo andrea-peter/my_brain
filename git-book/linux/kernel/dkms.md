@@ -1,17 +1,3 @@
----
-layout:
-  title:
-    visible: true
-  description:
-    visible: false
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
----
-
 # dkms
 
 dynamic kernel module support
@@ -66,9 +52,23 @@ Build takes place in
 /var/lib/dkms/<module>/<version>/<kernel>/<arch>/
 ```
 
+Logs can be found in
+
+```
+/var/lib/dkms/<module>/<version>/build/make.log
+```
+
 ### dkms install
 
-Install a built module into the kernel it was built for
+{% hint style="danger" %}
+Install ≠ insert
+{% endhint %}
+
+Install a built module (`.ko` file) into the kernel it was built for into
+
+```
+/lib/modules/<kernel-version>/${DEST_MODULE_LOCATION}
+```
 
 ## dh\_dkms
 
