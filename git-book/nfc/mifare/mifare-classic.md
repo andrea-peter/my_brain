@@ -1,17 +1,3 @@
----
-layout:
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
----
-
 # MIFARE Classic
 
 MIFARE Classic cards' memory is organized in sectors which are composed of blocks, sector size varies, block size is always 16 Bytes.

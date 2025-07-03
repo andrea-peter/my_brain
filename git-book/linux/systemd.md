@@ -1,17 +1,3 @@
----
-layout:
-  title:
-    visible: true
-  description:
-    visible: false
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
----
-
 # systemd
 
 [https://wiki.archlinux.org/title/Systemd](https://wiki.archlinux.org/title/Systemd)
@@ -90,6 +76,11 @@ This will create a file in `/etc/systemd/system/unit.d` (or similar)
 ```
 systemctl edit [--full] UNIT
 ```
+
+## Targets
+
+* Groups of units
+* Well-known synchronization points
 
 ## Timers
 

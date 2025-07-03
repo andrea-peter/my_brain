@@ -1,17 +1,3 @@
----
-layout:
-  title:
-    visible: true
-  description:
-    visible: false
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
----
-
 # Logging
 
 [https://www.kernel.org/doc/html/latest/core-api/printk-basics.html](https://www.kernel.org/doc/html/latest/core-api/printk-basics.html)

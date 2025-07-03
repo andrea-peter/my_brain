@@ -1,5 +1,7 @@
 # Bash
 
+For examples check out: [https://github.com/andrea-peter/bash\_tests](https://github.com/andrea-peter/bash_tests)
+
 ## Completion
 
 ```
@@ -148,6 +150,14 @@ Pattern matching with **shortest** matching pattern deleted
 #### ${parameter##word}
 
 Pattern matching with **longest** matching pattern deleted
+
+#### ${parameter^^}
+
+Upper case, one `^` for only first letter
+
+#### ${parameter,,}
+
+Lower case, one `,` for only first letter
 
 
 

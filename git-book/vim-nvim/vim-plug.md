@@ -1,17 +1,3 @@
----
-layout:
-  title:
-    visible: true
-  description:
-    visible: false
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
----
-
 # vim-plug
 
 [vim-plug](https://github.com/junegunn/vim-plug) is a minimalist plugin manager for vim

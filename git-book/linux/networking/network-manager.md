@@ -1,17 +1,3 @@
----
-layout:
-  title:
-    visible: true
-  description:
-    visible: false
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
----
-
 # Network manager
 
 Based on concept of connection profiles (a.k.a connections), connection profiles are applied to devices when connections are activated

@@ -1,17 +1,3 @@
----
-layout:
-  title:
-    visible: true
-  description:
-    visible: false
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
----
-
 # Device Tree
 
 OS-agnostic device representation for devices that are not discoverable (like devices on I2C, SPI etc.)

@@ -1,0 +1,7 @@
+# Device mapper
+
+
+
+```
+blkid
+```

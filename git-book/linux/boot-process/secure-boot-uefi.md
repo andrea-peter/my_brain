@@ -1,24 +1,10 @@
----
-layout:
-  title:
-    visible: true
-  description:
-    visible: false
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
----
+# Secure boot - UEFI
 
-# Secure boot
+[https://github.com/safayetahmedatge/efitutorial](https://github.com/safayetahmedatge/efitutorial)
 
 Secure Boot is a UEFI firmware security feature developed by the [UEFI Consortium](https://uefi.org/) that ensures only immutable and signed software are loaded during the boot time.
 
-## Components
-
-(Not necessary hardware components)
+## Key lists
 
 ### DB - Allowed signatures DB
 
@@ -30,13 +16,13 @@ Stores revoked, compromised, and non-trusted keys and hashes. Any attempt to loa
 
 Entries here are typically hashes of specific UEFI binaries, i.e. those things that were signed by a certificate in the **DB** but later found to be bad (e.g. having a security vulnerability that compromises the firmware). So this is a “block” list.
 
-### PK - Platform key DB
+### PK - Platform keys
 
 Public keys used to verify the signatures of bootloader or firmware.
 
 This key is typically set by the platform manufacturer when a system is built in the factory. While it may be replaceable by an end user or enterprise IT services, its purpose is to protect the next key from uncontrolled modification
 
-### **KEK -** Key Enrollment Key DB
+### **KEK -** Key Enrollment Keys
 
 The KEKs protect the signature DBs (**DB** and **DBX**) from unauthorized modifications.
 
@@ -44,7 +30,7 @@ The KEKs protect the signature DBs (**DB** and **DBX**) from unauthorized modifi
 
 Managed by the user, usually located in /var/lib/shim-signed/mok/
 
-### Shim
+## The shim
 
 EFI application, early stage bootloader, signed by Microsoft, embeds a Canonical (or Red Hat, etc.) certificate as its own certificate database. For example, the GRUB binary is usually signed by this certificate.
 
@@ -65,6 +51,10 @@ Used by bootloader and early system start-up
 ### Runtime variables
 
 Allows OS to manage settings of the firmware
+
+## EFI system partition (ESP)
+
+Mounted at `/boot/efi` , contains efi applications (shim, grub, etc.)
 
 ## How to
 

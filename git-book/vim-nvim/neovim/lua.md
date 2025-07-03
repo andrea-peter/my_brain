@@ -1,17 +1,3 @@
----
-layout:
-  title:
-    visible: true
-  description:
-    visible: false
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
----
-
 # Lua
 
 [https://neovim.io/doc/user/lua.html](https://neovim.io/doc/user/lua.html)
