@@ -84,4 +84,5 @@
 * [YOCTO](yocto/README.md)
   * [YouTube Raspberry Pi 5 tutorial](yocto/youtube-raspberry-pi-5-tutorial/README.md)
     * [01 - Build](yocto/youtube-raspberry-pi-5-tutorial.md)
+    * [02 - SSH for remote network access](yocto/youtube-raspberry-pi-5-tutorial/02-ssh-for-remote-network-access.md)
 * [LDD1](ldd1.md)

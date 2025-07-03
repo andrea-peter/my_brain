@@ -13,9 +13,13 @@ layout:
     visible: true
 ---
 
-# YouTube Raspberry Pi 5 tutorial
+# 02 - SSH for remote network access
 
-{% content-ref url="../youtube-raspberry-pi-5-tutorial.md" %}
-[youtube-raspberry-pi-5-tutorial.md](../youtube-raspberry-pi-5-tutorial.md)
-{% endcontent-ref %}
+## Initialize env
 
+```
+cd git/poky-rpi/
+source oe-init-build-env
+```
+
+## Get bitbake variable EXTRA\_IMAGE\_FEATURES
