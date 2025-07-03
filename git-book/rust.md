@@ -1,17 +1,3 @@
----
-layout:
-  title:
-    visible: true
-  description:
-    visible: false
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
----
-
 # Rust
 
 ## Paths
@@ -59,3 +45,28 @@ rustup self uninstall
 * Test your project: `cargo test`
 * Build documentation for your project: `cargo doc --open`
 * Publish a library to [crates.io](https://crates.io): `cargo publish`
+
+## Code organization
+
+Package > Crate > Module
+
+### Package
+
+* Has _`Cargo.toml`_
+* Must contain at least one crate:
+  * At most one library crate
+  * Any number of binary crates
+
+### Crate
+
+Smallest compilable unit
+
+* `src/main.rs`: binary crate with same name as the package
+* `src/lib.rs`: library crate with same name as the package
+* `src/bin/`: All other binaries
+
+### Module
+
+* One root module
+* Code within a module is private from its parent module by default
+*
