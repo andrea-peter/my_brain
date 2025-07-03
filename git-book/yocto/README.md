@@ -17,15 +17,23 @@ layout:
 
 
 
-YOCTO page
+## YOCTO
 
 [https://docs.yoctoproject.org/](https://docs.yoctoproject.org/)
 
-Scale 15 presentation slides
+Scale 15 presentation slides:
 
-[Intro to the YOCTO project](https://docs.google.com/presentation/d/1LmI3mHoD_Dzl8wplIYcUBrFF8BzDb_EadTvfbnpSK7Q/edit?pli=1\&slide=id.p4#slide=id.p4)
+* [Intro to the YOCTO project](https://docs.google.com/presentation/d/1LmI3mHoD_Dzl8wplIYcUBrFF8BzDb_EadTvfbnpSK7Q/edit?pli=1\&slide=id.p4#slide=id.p4)
+* [YOCTO project advanced course](https://docs.google.com/presentation/d/1HoDtyN5SzlmuTN47ab4Y7w_i6c_VEW6EBUD944ntf38/edit?slide=id.p4#slide=id.p4)
 
-[YOCTO project advanced course](https://docs.google.com/presentation/d/1HoDtyN5SzlmuTN47ab4Y7w_i6c_VEW6EBUD944ntf38/edit?slide=id.p4#slide=id.p4)
+## BitBake
+
+Doc: [https://docs.yoctoproject.org/bitbake.html](https://docs.yoctoproject.org/bitbake.html)
+
+Bitbake variables:\
+[https://the-pi-guy.com/blog/bitbake\_variables\_and\_their\_impact\_on\_build\_processes/](https://the-pi-guy.com/blog/bitbake_variables_and_their_impact_on_build_processes/)
+
+
 
 
 

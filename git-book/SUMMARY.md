@@ -83,6 +83,7 @@
     * [Lua](vim-nvim/neovim/lua.md)
 * [YOCTO](yocto/README.md)
   * [YouTube Raspberry Pi 5 tutorial](yocto/youtube-raspberry-pi-5-tutorial/README.md)
-    * [01 - Build](yocto/youtube-raspberry-pi-5-tutorial.md)
+    * [01 - First build](yocto/youtube-raspberry-pi-5-tutorial/01-first-build.md)
     * [02 - SSH for remote network access](yocto/youtube-raspberry-pi-5-tutorial/02-ssh-for-remote-network-access.md)
+    * [03 - Docker on Raspberry Pi 5](yocto/youtube-raspberry-pi-5-tutorial/03-docker-on-raspberry-pi-5.md)
 * [LDD1](ldd1.md)
