@@ -92,5 +92,6 @@
     * [05 - Modifying U-Boot environment in Linux](yocto/youtube-raspberry-pi-5-tutorial/05-modifying-u-boot-environment-in-linux.md)
     * [06 - Runtime package management with apt](yocto/youtube-raspberry-pi-5-tutorial/06-runtime-package-management-with-apt.md)
     * [07 - Create new layer and recipe](yocto/youtube-raspberry-pi-5-tutorial/07-create-new-layer-and-recipe.md)
-* [Ygreky Embedded Security Training](ygreky-embedded-security-training.md)
+* [Ygreky Embedded Security Training](ygreky-embedded-security-training/README.md)
+  * [03 - Generating an SBOM in the Yocto project](ygreky-embedded-security-training/03-generating-an-sbom-in-the-yocto-project.md)
 * [LDD1](ldd1.md)

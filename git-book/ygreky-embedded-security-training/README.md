@@ -395,6 +395,8 @@ Because of the above problems, the EU created its own database at: [https://euvd
 
 Built-in check in Yocto project to scan recipes, add this to your `local.conf`
 
+Check out this script to get lines of CVEs out of reports: [https://gitlab.com/ygreky/public/yocto-vex-check/-/blob/main/script/cve-report.py?ref\_type=heads](https://gitlab.com/ygreky/public/yocto-vex-check/-/blob/main/script/cve-report.py?ref_type=heads)
+
 ```
 INHERIT += "cve-check"
 CVE_DB_UPDATE_INTERVAL = -1
@@ -426,12 +428,148 @@ bitbake world --runall do_cve_check
 * CRA does not specify how the risk analysis must be done, only that it must be done
 * Risk evaluation is quite subjective to the company/use case
 
-### Risk management staged
+### Risk management stages
 
 * Identify risks (assets, threats and vulnerabilities)
 * Assess risk (calculate risk: likelihood and impact)
 * Handle risks (implement mitigations and controls, re-calculate risk after their implementation)
 * Monitor risks (check effectiveness and review analysis)
+
+## Upgrade from kirkstone to scarthgap
+
+TODO update
+
+* git fetch and checkout kirkstone on layers (meta-my..., meta-security)
+* re-copy `openembedded-core` and `meta-oe` from the `scarthgap` folder in the store (maybe git fetch and checkout would have worked here too)
+* Set `DL_DIR` and `SSTATE_DIR` to the `scarthgap` folder in store (don't copy old local conf)
+* Change vaule of "LAYERSERIES\_COMPAT\_meta-mysecuredistro" to "scarthgap" in layer.conf
+* Re-add layers (since build dir does not exist anymore)
+
+## CVE fixes in Yocto
+
+When a CVE is issued, we would like to patch the recipes in a way that `cve-check` will acknowledge
+
+### I have an unpatched CVE...
+
+* From cve-check
+* From monitoring of the new CVE stream
+* As a part of a coordinated disclosure
+* I implemented the fix upstream :sunglasses:
+
+### A few check before you start
+
+* Is there someone else working on it?
+  * Ask! Check the mailing list archive
+  * Check out this: [https://wiki.yoctoproject.org/wiki/Synchronization\_CVEs](https://wiki.yoctoproject.org/wiki/Synchronization_CVEs)
+* Is the backported patch to the version in YP available?
+  * Upstream first
+  * Can check big distros like Debian
+  * Remember: YP starts applying from master (if versions match)
+* Which YP versions are affected?
+
+-> Look for files named `CVE-...`
+
+See:
+
+* &#x20;[https://wiki.yoctoproject.org/wiki/Synchronization\_CVEs](https://wiki.yoctoproject.org/wiki/Synchronization_CVEs)
+* [https://www.youtube.com/watch?v=CRDxJwsO4b4\&list=PLD4M5FoHz-Tw5-pazgQbITW\_HmuJhyrI-\&t=640s](https://www.youtube.com/watch?v=CRDxJwsO4b4\&list=PLD4M5FoHz-Tw5-pazgQbITW_HmuJhyrI-\&t=640s)
+
+## Vulnerability reporting
+
+* Risk considered:
+  * A researcher sells a vulnerability to malicious actors
+  * A researcher releases the vulnerability information to the public while there is no fix
+  * An attacker uses an unfixed vulnerability in a package you include
+* Technical details to analyze
+  * Reports to your product (incoming), usually company-specific code
+  * Reports to your upstream (outgoing), if you discover a possible security bug
+* Best practices
+  * Create a security policy at your company (and train on it)
+  * Know how to report a security vulnerability to a supplier or an upstream project
+
+#### Your company's best practices
+
+* Have a security contact on the website
+* If open source: add `SECURITY.md`
+* Set-up security policy
+
+#### Security policy basics
+
+* How do you receive reports?
+  * Dedicated mailing list
+  * Dedicated (confidential) bug tracker
+  * ONLY the security teams has initially access to them
+* Who is the security team?
+  * Representatives from all teams you need to get an update deployed: usually development, release, quality plus a dedicated communication contact
+  * Simple exercise: Imagine an emergency release scenario
+* Possible need to communicate with other companies/projects
+  * If the issue is in a dependency
+  * If there is a similar issue in similar project (e.g. protocol weakness)
+* Your market might have special requirements
+* There might be timing requirements
+  * Example: Disclosure in 90 days
+
+See: [https://docs.yoctoproject.org/dev-manual/security-subjects.html](https://docs.yoctoproject.org/dev-manual/security-subjects.html)
+
+## SBOM
+
+Software bill of material
+
+* Package information
+  * Exact download location
+  * Licenses
+  * (Possible) exact source files used
+  * (Possible) build environment config
+  * (Possible) build commands
+* Dependency list
+  * Dependency diagram
+
+### Generate SBOM
+
+* Risk considered:
+  * An attacker exploits a dependency with a security vulnerability
+  * An attacked replaces a dependency with a malicious one
+* Technical details to analyze
+  * Download locations, licenses, patches applied
+* Best practices
+  * Generate SBOMs
+  * **Automate** analysis of what the product contains
+
+### SBOM standards
+
+SPDX and CycloneDX contain the same info
+
+* SPDX
+  * Designed for licensing and legal
+  * SPX2.2 is an ISO standard
+  * Recently released 3.0 add modularity and security options
+  * A Linux Foundation project
+  * Generated by the Yocto project by default
+* Cyclone DX
+  * Hosted by OWASP
+  * Created for security-related use-cases
+* Other - vendor specific
+
+### Current state (2025)
+
+* Generation tools for most build systems
+  * Majority generate JSON
+* Compatibility is a WIP
+  * No 1:1 conversion SPDX <-> CycloneDX
+  * Various incompatibilities between tools
+
+### Yocto and SBOM
+
+* Scarthgap and Kirkstone
+  * SPDX 2.2
+  * Out-of-tree CycloneDX patches
+* Current "master"
+  * SPDX 3.0
+  * SPDX 2.2 (optional)
+
+See: [https://www.youtube.com/watch?v=faDBoZOGuVE](https://www.youtube.com/watch?v=faDBoZOGuVE)
+
+
 
 
 
