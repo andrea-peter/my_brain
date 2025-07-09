@@ -178,6 +178,8 @@ Test
 
 ## Day 1 - Creating a distro
 
+[https://gitlab.com/ygreky/public/meta-mysecuredistro-example](https://gitlab.com/ygreky/public/meta-mysecuredistro-example)
+
 ### Why?
 
 * Only layers/recipes you need
@@ -511,6 +513,8 @@ See:
 
 See: [https://docs.yoctoproject.org/dev-manual/security-subjects.html](https://docs.yoctoproject.org/dev-manual/security-subjects.html)
 
+This script checks SPDX to filter CVEs: [https://git.openembedded.org/openembedded-core/tree/scripts/contrib/improve\_kernel\_cve\_report.py](https://git.openembedded.org/openembedded-core/tree/scripts/contrib/improve_kernel_cve_report.py)
+
 ## SBOM
 
 Software bill of material
@@ -534,6 +538,8 @@ Software bill of material
 * Best practices
   * Generate SBOMs
   * **Automate** analysis of what the product contains
+
+Some SBOM tools generate at build time, some ad runtime
 
 ### SBOM standards
 
@@ -567,7 +573,77 @@ SPDX and CycloneDX contain the same info
   * SPDX 3.0
   * SPDX 2.2 (optional)
 
-See: [https://www.youtube.com/watch?v=faDBoZOGuVE](https://www.youtube.com/watch?v=faDBoZOGuVE)
+See:
+
+* [https://www.youtube.com/watch?v=faDBoZOGuVE](https://www.youtube.com/watch?v=faDBoZOGuVE)
+* [https://www.youtube.com/watch?v=Q5UQUM6zxVU](https://www.youtube.com/watch?v=Q5UQUM6zxVU)
+* A software component catalogue application:\
+  [https://github.com/eclipse-sw360/sw360?tab=readme-ov-file](https://github.com/eclipse-sw360/sw360?tab=readme-ov-file)
+
+## Generating an SBOM in Yocto
+
+Inherit from `create-spdx` , in your distro conf, add:
+
+```
+INHERIT += "create-spdx"
+```
+
+After building, the file `tmp-glibc/deploy/images/qemux86-64/core-image-minimal-qemux86-64.rootfs.spdx.tar.zst` is created, extract with
+
+```
+tar --zstd -xf tmp-glibc/deploy/images/qemux86-64/core-image-minimal-qemux86-64.rootfs.spdx.tar.zst
+```
+
+It's full of `JSON` files
+
+Some options:
+
+* `SPDX_INCLUDE_SOURCES = “1”`: Adds description of source files, dramatically increases the size of the SBOM and the build time
+* `SPDX_ARCHIVE_SOURCES`: Allows the addition of source archives to the SBOM
+
+### Script to get download URLs
+
+```
+for file in spdx/*.json; do cat ${file} |  jq 2>/dev/null '.["packages"][]["downloadLocation"]' ; done |  grep -v '"NOASSERTION"' | sort > download_locations.txt
+```
+
+## Hardening
+
+To check flags on executables:
+
+```
+checksec --file=/bin/bash
+```
+
+### Check `busybox` executable on target
+
+#### Add \`checksec\` in the image
+
+In the `bbappend` file add:
+
+```
+IMAGE_INSTALL:append = " checksec"
+```
+
+#### Normal compilation
+
+<figure><img src="../.gitbook/assets/image (26).png" alt=""><figcaption></figcaption></figure>
+
+```
+$ checksec --file=/bin/busybox
+RELRO STACK CANARY NX PIE RPATH RUNPATH Symbols FORTIFY Fortified Fortifiable FILE
+Partial RELRO No canary found NX enabled No PIE No RPATH No RUNPATH No Symbols No 0 31 /bin/busybox
+```
+
+#### Include compile options
+
+In the distro conf file add:
+
+```
+require conf/distro/include/security_flags.inc
+```
+
+re-build, it will be quite a massive build
 
 
 
