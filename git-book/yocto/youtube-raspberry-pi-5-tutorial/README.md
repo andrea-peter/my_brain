@@ -1,18 +1,3 @@
----
-layout:
-  width: default
-  title:
-    visible: true
-  description:
-    visible: false
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
----
-
 # YouTube Raspberry Pi 5 tutorial
 
 [https://www.youtube.com/playlist?list=PLRsiDZNEIs\_T-AjQROqpwlzdLoJCkRab7](https://www.youtube.com/playlist?list=PLRsiDZNEIs_T-AjQROqpwlzdLoJCkRab7)

@@ -1,18 +1,3 @@
----
-layout:
-  width: default
-  title:
-    visible: true
-  description:
-    visible: false
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
----
-
 # 02 - SSH for remote network access
 
 [https://www.youtube.com/watch?v=ltckiBV9FXg\&list=PLRsiDZNEIs\_T-AjQROqpwlzdLoJCkRab7\&index=2\&pp=iAQB](https://www.youtube.com/watch?v=ltckiBV9FXg\&list=PLRsiDZNEIs_T-AjQROqpwlzdLoJCkRab7\&index=2\&pp=iAQB)

@@ -1,18 +1,3 @@
----
-layout:
-  width: default
-  title:
-    visible: true
-  description:
-    visible: false
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
----
-
 # Ygreky Embedded Security Training
 
 ## Day 1 - Why embedded security
@@ -644,6 +629,178 @@ require conf/distro/include/security_flags.inc
 ```
 
 re-build, it will be quite a massive build
+
+## More than compiler hardening
+
+* Risk considered:
+  * An exploit uses an alternative device/memory access path via a special file
+  * An exploit uses debug mode kernel options
+* Technical details to analyze
+  * Linux conf options
+  * Linux kernel configuration fragments
+* Best practices
+  * Prepare and test kernel configuration options set
+  * Review kernel configuration existing hardening lists
+
+### Where to find options for hardening?
+
+* Kernel self protection project
+  * [https://kspp.github.io//Recommended\_Settings](https://kspp.github.io/Recommended_Settings)
+* Kernel hardening checker
+  * [https://github.com/a13xp0p0v/kernel-hardening-checker](https://github.com/a13xp0p0v/kernel-hardening-checker)
+* Warning: test them in your config
+  * Some might be too aggressive for an embedded system
+  * Recommendation: add them at the beginning of the project
+
+### Yocto - how to add kernel fragments?
+
+* linux-yocto\_%.bbappend
+  * ```
+    require ${@bb.utils.contains('DISTRO_FEATURES', 'security', '$(BPN)-hardening.inc', '', d)}
+    ```
+* Linux-yocto-hardening.inc
+  * ```
+    FILEEXTRAPATHS:prepend: = "${THISDIR}/linux:"
+    ```
+  * ```
+    SRC_URI+= "file://hardening_fortify_source.cfg"
+    ```
+* linux/hardening\_fortify\_source.cfg
+  * ```
+    # Detect buffer overflows on string and memory,
+    # when the compiler can verify the buffer sizes
+    CONFIG_FORTIFY_SOURCE=y
+    ```
+* More examples:
+  * [https://gitlab.com/ygreky/public/meta-mysecuredistro-example/-/tree/main/recipes-kernel/linux?ref\_type=heads](https://gitlab.com/ygreky/public/meta-mysecuredistro-example/-/tree/main/recipes-kernel/linux?ref_type=heads)
+
+### Linux kernel hardening
+
+* `CONFIG_INIT_ON_ALLOC_DEFAULT_ON=y` makes memory zeroed when allocated. This eliminates errors related to heap exposure, dependency on uninitialized variables, and so on.
+* Disabling `CONFIG_PROC_KCORE` disables `/proc/kcore` file that exposes the kernel image.
+* `CONFIG_SECURITY_DMESG_RESTRICT=y` restricts unprivileged users from reading the kernel log.
+* Disable `CONFIG_DEVMEM` to disallow access to all memory by root.
+* `CONFIG_HARDENED_USERCOPY=y` adds boundary check on memcopy to and from the kernel.
+
+### Links
+
+* How to add kernel fragments: [https://docs.yoctoproject.org/kernel-dev/common.html#creating-configuration-fragments](https://docs.yoctoproject.org/kernel-dev/common.html#creating-configuration-fragments)
+* Marta's set of embedded-tested options: [https://gitlab.com/ygreky/public/meta-mysecuredistro-example/-/tree/main/recipes-kernel?ref\_type=heads](https://gitlab.com/ygreky/public/meta-mysecuredistro-example/-/tree/main/recipes-kernel?ref_type=heads)
+* Linux Kernel Self Protection Project recommended options : [https://kspp.github.io/Recommended\_Settings](https://kspp.github.io/Recommended_Settings)
+* Kernel hardening checker tool: [https://github.com/a13xp0p0v/kernel-hardening-checker/](https://github.com/a13xp0p0v/kernel-hardening-checker/)
+* Using Linux kernel fragments: [https://docs.yoctoproject.org/kernel-dev/common.html#creating-configuration-fragments](https://docs.yoctoproject.org/kernel-dev/common.html#creating-configuration-fragments)
+
+{% hint style="info" %}
+Kernel options change between versions, and your kernel configuration fragment may require modifications to work with a different version or with a vendor kernel tree
+{% endhint %}
+
+## Users and permissions
+
+### Services as users
+
+* Risks considered:
+  * An attacker exploits a low-priority service to run code as root
+  * An attacker exploits a web interface to run code as root
+* Technical details to analyze
+  * Services running, their default configuration
+  * Permissions those services require
+* Bests practices
+  * Run all services accessible from remote interfaces as separate users
+  * Avoid services running as root, you can create a separate user
+  * Consider lightweight containers for the most critical ones
+  * Consider Linux security modules (exmple SELinux)
+
+### Limited permissions
+
+* Risks considered:
+  * An attacker axploits a low-priority service to access device files (e.g. flash)
+  * An attacker exploits a service to write files in the system
+* Technical details to analyze
+  * Device permissions
+  * File system permissions
+* Best practices
+  * Limit devices access by default on all new services
+  * Use a read-only filesystem (except for configuration)
+  * Consider overlays
+
+## Package choice
+
+### Choosing dependencies carefully
+
+* Risks considered
+  * You use a malicious repository with a similar name to the upstream one
+  * You use an outdated layer/recipe with a security issue while there is an updated one
+* Technical details
+  * Yocto project layer list
+  * External services Best Practice Badge
+* Best practices
+  * Choose well maintained dependencies
+  * Use well-maintained YP layers
+  * Choose hardware vendors with up-to-date BSPs
+* Functionality
+  * Does it have all functions I need
+* Repository security
+  * Is it the correct link (watch for the number of star, likes, organization name looking official)?
+* Project health
+  * How many people contribute regularly?
+  * Does it depend on one person?
+* Stable policy
+  * How long is their support period?
+  * Do they release bugfix releases? (otherwise you might need to backport yourself)
+  * How frequently they break APIs?
+* LTS support
+  * Does the layers support LTS versions?
+  * Are they up to date?
+* Prefer OpenEmbedded/Yocto official layers
+  * Use vendor layers only if recipe not available
+* Layer project health
+  * Same criteria as for any other project
+  * You might decide to contribute to a layer/co-maintain
+
+### What if I'm stuck with an outdated BSP?
+
+* Evaluate the software at the time of the component choice
+  * Do they support standard layers?
+  * Do they have a well-supported layer?
+  * How many patches are there?
+  * Is the source available?
+  * Talk to the vendor...
+* Find a community layer
+* Vendor layer update
+  * How hard would it be to update all components?
+  * Can you limit their specific version usage?
+
+## Debug and production build
+
+### Debug and production builds as similar as possible
+
+* Risks considered
+  * An attacker uses a pacakge included only for tests
+  * An attacker uses an account without credentials, used for dev
+  * An attacker uses test cryptographic keys left by an error
+* Technical details
+  * Image inheritance
+  * Test system integration
+* Best practices
+  * Inherit the production image in the test/debug\_one
+  * Include only a minimal set of changes in the test/debug image
+  * Make your test image say clearly that it shouldn't be used in production
+
+## Technique 15: Stay up to date with legislation
+
+* Europe
+  * Cyber resilience act (CRA)
+  * Product liability directive
+* Similar in other places
+  * USA, UK
+  * Asia: work in progress
+* Mandatory - not recommendations
+
+### CRA obligations
+
+* All obligations apply 10 December 2027
+* Creation of standards: 2026
+* Reporting of exploited vulnerabilities and security incidents: September 2026
 
 
 

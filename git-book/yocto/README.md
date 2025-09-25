@@ -1,18 +1,3 @@
----
-layout:
-  width: default
-  title:
-    visible: true
-  description:
-    visible: false
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
----
-
 # Yocto
 
 {% hint style="info" %}
@@ -62,6 +47,14 @@ Convert `.dot` to graphical file with `graphviz`
 
 ```
 dot -Tps task-depends.dot task-depends.ps
+```
+
+### Clean temporary file (tmp) for given recipe
+
+Kernel:
+
+```
+bitbake -c clean linux-yocto
 ```
 
 ## Layer

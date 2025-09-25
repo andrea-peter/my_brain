@@ -99,6 +99,28 @@ Custom
 {% tab title="Gitsigns" %}
 <figure><img src="../../.gitbook/assets/image (21).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
+
+{% tab title="nvim-dap" %}
+## Debugger
+
+[https://github.com/mfussenegger/nvim-dap](https://github.com/mfussenegger/nvim-dap)
+
+[https://github.com/mfussenegger/nvim-dap-python](https://github.com/mfussenegger/nvim-dap-python)
+
+Virtualenv: put this in `.envrc`:
+
+```
+export VIRTUAL_ENV=$(pyenv prefix)
+```
+
+Launch debugger session with something like:
+
+```
+PYTHONPATH=src:tests python -m debugpy --listen 5678 --wait-for-client -m pytest -k test_config.py
+```
+
+then attach debugger in nvim
+{% endtab %}
 {% endtabs %}
 
 ### Lazy.nvim
@@ -128,6 +150,8 @@ A pretty list for showing diagnostics, references, telescope results, quickfix a
 ### Neo-tree
 
 [https://github.com/nvim-neo-tree/neo-tree.nvim](https://github.com/nvim-neo-tree/neo-tree.nvim)
+
+Default config with comments: [https://github.com/nvim-neo-tree/neo-tree.nvim/blob/main/lua/neo-tree/defaults.lua](https://github.com/nvim-neo-tree/neo-tree.nvim/blob/main/lua/neo-tree/defaults.lua)
 
 Type `?` for help, then `ESC` to close help dialog
 

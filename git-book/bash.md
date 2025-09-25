@@ -95,9 +95,13 @@ rm file1.[a-c]
 
 ## Parameter expansion
 
+**TODO: reformat this chapter (replace code snippets in titles with short description)**
+
 [https://www.gnu.org/software/bash/manual/html\_node/Shell-Parameter-Expansion.html](https://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html)
 
-#### ${parameter:-word}
+#### Default value
+
+* `${parameter:-word}`
 
 If `parameter` is unset or null the expansion of `word` is substituted (`word` can be an expansion), otherwise the value of `parameter` is substituted
 
@@ -108,6 +112,13 @@ $ var=miao
 $ echo ${var:-DEFAULT}
 miao
 ```
+
+#### Substring
+
+* `${parameter:offset}`
+* `${parameter:offset:length}`
+
+
 
 #### ${parameter:=word}
 
