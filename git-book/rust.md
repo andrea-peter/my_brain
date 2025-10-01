@@ -53,7 +53,7 @@ Package > Crate > Module
 ### Package
 
 * Has _`Cargo.toml`_
-* Must contain at least one crate:
+* Bundle of one or more crates:
   * At most one library crate
   * Any number of binary crates
 
@@ -61,12 +61,18 @@ Package > Crate > Module
 
 Smallest compilable unit
 
-* `src/main.rs`: binary crate with same name as the package
-* `src/lib.rs`: library crate with same name as the package
-* `src/bin/`: All other binaries
+* `src/main.rs`: root of binary crate with same name as the package
+* `src/lib.rs`: root of library crate with same name as the package
+* `src/bin/`: Binary crates
+* `cargo new` creates a new package
 
 ### Module
 
+* Start from the crate root (like the compiler does)
+* Declare modules in the crate root, the compiler will look for:
+  * Inline, with  `mod <mymodule> {...}`
+  * `src/<mymodule>.rs`
+  * `src/<mymodule>/mod.rs`
 * One root module
 * Code within a module is private from its parent module by default
 *
