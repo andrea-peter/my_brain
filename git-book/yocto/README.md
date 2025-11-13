@@ -66,12 +66,14 @@ bitbake -c clean linux-yocto
 Some container layers are actual layers, other are just a folder
 {% endhint %}
 
-### Structure
+### Layer structure
 
 ```
 .
 ├── conf
+│   ├── distro/thedistro.conf
 │   └── layer.conf
+│
 ├── COPYING.MIT
 ├── README
 └── recipes-example
@@ -90,15 +92,25 @@ Some container layers are actual layers, other are just a folder
 Isn't there any namespace by layer?
 {% endhint %}
 
+## [Class](https://docs.yoctoproject.org/ref-manual/classes.html)
+
+`.bbclass` files, solves a generic problem, recipes can inherit classes
+
 ## [Images](https://docs.yoctoproject.org/4.0.27/ref-manual/images.html#images)
 
-When the `bitbake` command is issued a "top-level" recipe is provided that essentially begins the build for the wanted image type.
+Images are basically top-level recipes, when the `bitbake` command is issued, a "top-level" recipe is provided that essentially begins the build for the wanted image type.
 
 Image recipes can be found with:
 
 ```
 ls meta*/recipes*/images/*.bb
 ```
+
+## Tips and tricks
+
+* Share cache: [https://bootlin.com/blog/yocto-sharing-the-sstate-cache-and-download-directories/](https://bootlin.com/blog/yocto-sharing-the-sstate-cache-and-download-directories/)
+
+There is a sanity check mechanism that will complain when you do weird stuff like decreasing `CONF_VERSION` , to work around this delete the file `build/cache/sanity_info`
 
 ## Links
 

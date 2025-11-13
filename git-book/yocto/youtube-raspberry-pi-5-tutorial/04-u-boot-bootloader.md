@@ -15,7 +15,7 @@ git clone -b scarthgap/u-boot git://git.yoctoproject.org/meta-lts-mixins
 
 ## Proprietary bootloder
 
-The Pi bootloader is proprietary, this bootloader load U-Boot
+The Pi bootloader is proprietary, this bootloader loads U-Boot
 
 ## Configure to use U-Boot
 

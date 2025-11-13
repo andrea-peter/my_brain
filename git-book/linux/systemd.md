@@ -20,7 +20,7 @@
 name-prefix.unit-type
 ```
 
-The name-prefix can be parametrized with an instance name (e.g. with a counter) lile:
+The name-prefix can be parametrized with an instance name (e.g. with a counter) like:
 
 ```
 unit-name@instance-name.unit-type

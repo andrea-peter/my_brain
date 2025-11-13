@@ -58,7 +58,6 @@
   * [udev](linux/udev.md)
   * [ulimit](linux/ulimit.md)
   * [Users and groups](linux/users-and-groups.md)
-  * [Embedded](linux/embedded.md)
 * [git](git/README.md)
   * [lazygit](git/lazygit.md)
 * [Hashi Vault CLi](hashi-vault-cli.md)
