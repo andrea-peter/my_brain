@@ -194,3 +194,25 @@ To format whole buffer: `:%!jq`
 Formatter
 
 log file: `/home/andrea/.local/state/nvim/conform.log`
+
+## Spell-check
+
+```viml
+help spell
+
+" Set spelling for buffer
+:setlocal spell spelllang=en_US
+:setlocal spell spelllang=fr_FR
+
+" Find misspelled words
+[s
+]s
+
+" Get suggestions for missspelled word under/after cursor
+z=
+
+" Add word to spellfile
+zg
+
+
+```

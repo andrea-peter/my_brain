@@ -4,7 +4,9 @@ description: Handle dotfiles in wit git
 
 # Chezmoi
 
+## Terms
 
+<table><thead><tr><th width="100"></th><th></th></tr></thead><tbody><tr><td>Source directory</td><td>Where the local git repo is (<code>chezmoi cd</code> to access it)</td></tr><tr><td>Source state</td><td>The state of the files in the source directory</td></tr><tr><td>Target</td><td>A file (usually a dotfile) you want to manipulate</td></tr></tbody></table>
 
 [https://www.chezmoi.io/](https://www.chezmoi.io/)
 
@@ -15,6 +17,10 @@ description: Handle dotfiles in wit git
 ## `chezmoi` ...
 
 ### `status`
+
+First column: Diff between what chezmoi has and the actual state
+
+Second column: Diff between actual state and the target state, and the effect of `chezmoi apply`
 
 ```
   Character     │Meaning       │First column           │Second column
