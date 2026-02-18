@@ -81,6 +81,7 @@
 * [SSH](linux/ssh/README.md)
   * [pdsh - parallel ssh execution](linux/ssh/pdsh-parallel-ssh-execution.md)
 * [tmux](tmux.md)
+* [UEFI console](uefi-console.md)
 * [vim/nvim](vim-nvim/README.md)
   * [Lazyvim - distro](vim-nvim/lazyvim-distro.md)
   * [LazyVim - Package manager](vim-nvim/lazyvim-package-manager.md)
