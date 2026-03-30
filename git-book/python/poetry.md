@@ -1,20 +1,3 @@
----
-layout:
-  width: default
-  title:
-    visible: true
-  description:
-    visible: false
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
-  metadata:
-    visible: true
----
-
 # Poetry
 
 {% embed url="https://realpython.com/dependency-management-python-poetry/#manage-dependencies-using-poetry" %}
