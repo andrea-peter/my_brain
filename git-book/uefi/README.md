@@ -54,6 +54,8 @@ In the [data types specification](https://uefi.org/specs/UEFI/2.11/02_Overview.h
 
 Handles support protocols
 
+
+
 ## Protocols
 
 [https://uefi.org/specs/UEFI/2.11/02\_Overview.html#protocols](https://uefi.org/specs/UEFI/2.11/02_Overview.html#protocols)
@@ -64,12 +66,20 @@ Composed of:
 * Interface structure
 * Protocol services
 
+### PCD protocol
+
+A platform database that contains a variety of current platform settings
+
 ***
 
 ## Links
 
-### Blogs, posts, etc
+### Krinkinmu's blog
 
 * [https://krinkinmu.github.io/2020/10/11/efi-getting-started.html](https://krinkinmu.github.io/2020/10/11/efi-getting-started.html)
 * [https://krinkinmu.github.io/2020/10/18/handles-guids-and-protocols.html](https://krinkinmu.github.io/2020/10/18/handles-guids-and-protocols.html)
+
+### edk2 UEFI driver writers guide
+
+* [https://github.com/tianocore-docs/edk2-UefiDriverWritersGuide/blob/main/SUMMARY.md](https://github.com/tianocore-docs/edk2-UefiDriverWritersGuide/blob/main/SUMMARY.md)
 

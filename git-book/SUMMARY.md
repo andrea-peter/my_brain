@@ -90,6 +90,7 @@
   * [Neovim](vim-nvim/neovim/README.md)
     * [Color scheme](vim-nvim/neovim/color-scheme.md)
     * [Lua](vim-nvim/neovim/lua.md)
+    * [Formatting](vim-nvim/neovim/formatting.md)
 * [Yocto](yocto/README.md)
   * [Variables](yocto/variables.md)
   * [YouTube Raspberry Pi 5 tutorial](yocto/youtube-raspberry-pi-5-tutorial/README.md)
