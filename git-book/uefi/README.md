@@ -79,6 +79,10 @@ A platform database that contains a variety of current platform settings
 * [https://krinkinmu.github.io/2020/10/11/efi-getting-started.html](https://krinkinmu.github.io/2020/10/11/efi-getting-started.html)
 * [https://krinkinmu.github.io/2020/10/18/handles-guids-and-protocols.html](https://krinkinmu.github.io/2020/10/18/handles-guids-and-protocols.html)
 
+### EDK II debugging
+
+* [https://www.tianocore.org/tianocore-wiki.github.io/development/tutorials-howto/edk\_ii\_debugging.html](https://www.tianocore.org/tianocore-wiki.github.io/development/tutorials-howto/edk_ii_debugging.html)
+
 ### edk2 UEFI driver writers guide
 
 * [https://github.com/tianocore-docs/edk2-UefiDriverWritersGuide/blob/main/SUMMARY.md](https://github.com/tianocore-docs/edk2-UefiDriverWritersGuide/blob/main/SUMMARY.md)
