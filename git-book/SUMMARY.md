@@ -61,6 +61,7 @@
   * [Users and groups](linux/users-and-groups.md)
 * [git](git/README.md)
   * [lazygit](git/lazygit.md)
+* [gpg](gpg.md)
 * [Hashi Vault CLi](hashi-vault-cli.md)
 * [Makefile](makefile.md)
 * [.NET](.net.md)

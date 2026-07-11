@@ -1,3 +1,24 @@
+---
+layout:
+  width: default
+  title:
+    visible: true
+  description:
+    visible: false
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: true
+  metadata:
+    visible: true
+  tags:
+    visible: true
+  actions:
+    visible: true
+---
+
 # Bash
 
 For examples check out: [https://github.com/andrea-peter/bash\_tests](https://github.com/andrea-peter/bash_tests)
@@ -120,6 +141,14 @@ miao
 
 
 
+#### ${parameter-word}
+
+expand to `word` if `parameter` not set
+
+#### ${parameter:-word}
+
+expand to `word` if `parameter` not set or null value (empty string)
+
 #### ${parameter:=word}
 
 TODO
@@ -152,7 +181,9 @@ this is some text
 
 ```
 
-#### ${parameter%/}
+#### ${parameter%\}
+
+#### ${parameter%%\}
 
 #### ${parameter#word}
 
