@@ -1,8 +1,29 @@
+---
+layout:
+  width: default
+  title:
+    visible: true
+  description:
+    visible: false
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: true
+  metadata:
+    visible: true
+  tags:
+    visible: true
+  actions:
+    visible: true
+---
+
 # Neovim
 
 ## Files and configs
 
-### Stadard paths
+### Standard paths
 
 [https://practical.li/neovim/reference/neovim/standard-path/](https://practical.li/neovim/reference/neovim/standard-path/)
 
@@ -17,7 +38,7 @@
   * Sessions
   * Undo data
 
-### Where is
+### Where is[https://luals.github.io/wiki/annotations/](https://luals.github.io/wiki/annotations/)
 
 * Mason packages: `<data-path>/mason`
 

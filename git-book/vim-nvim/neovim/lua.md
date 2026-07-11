@@ -1,8 +1,35 @@
+---
+layout:
+  width: default
+  title:
+    visible: true
+  description:
+    visible: false
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: true
+  metadata:
+    visible: true
+  tags:
+    visible: true
+  actions:
+    visible: true
+---
+
 # Lua
 
 [https://neovim.io/doc/user/lua.html](https://neovim.io/doc/user/lua.html)
 
-### APIs
+## Quick resources
+
+* Nvim lua programming DOs and DON'Ts: [https://github.com/lumen-oss/nvim-best-practices](https://github.com/lumen-oss/nvim-best-practices)
+* Type annotations with LuaLS: [https://luals.github.io/wiki/annotations/](https://luals.github.io/wiki/annotations/)
+* Nvim lua plugin template: [https://github.com/ColinKennedy/nvim-best-practices-plugin-template](https://github.com/ColinKennedy/nvim-best-practices-plugin-template)
+
+## APIs
 
 [https://neovim.io/doc/user/lua-guide.html#lua-guide-api](https://neovim.io/doc/user/lua-guide.html#lua-guide-api)
 
@@ -13,7 +40,7 @@
 * Nvim API, accessed through `vim.api`
 * Lua API
 
-### Entry point
+## Entry point
 
 Entry point, either of:
 
@@ -44,4 +71,10 @@ vim.cmd([[
 ```lua
 print(vim.fn.printf('Hello from %s', 'Lua'))
 ```
+
+## Debug lua
+
+[https://codeberg.org/mfussenegger/nlua](https://codeberg.org/mfussenegger/nlua)
+
+[https://zignar.net/2023/06/10/debugging-lua-in-neovim/](https://zignar.net/2023/06/10/debugging-lua-in-neovim/)
 
