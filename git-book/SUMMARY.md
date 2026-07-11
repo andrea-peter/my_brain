@@ -37,6 +37,7 @@
     * [Logging](linux/kernel/logging.md)
     * [Watchdog](linux/kernel/watchdog.md)
     * [Kernel header files](linux/kernel/kernel-header-files.md)
+    * [Build the kernel](linux/kernel/build-the-kernel.md)
   * [Kernel modules](linux/kernel-modules.md)
   * [Networking](linux/networking/README.md)
     * [nftables](linux/networking/nftables.md)
