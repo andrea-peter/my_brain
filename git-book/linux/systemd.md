@@ -1,3 +1,24 @@
+---
+layout:
+  width: default
+  title:
+    visible: true
+  description:
+    visible: false
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: true
+  metadata:
+    visible: true
+  tags:
+    visible: true
+  actions:
+    visible: true
+---
+
 # systemd
 
 [https://wiki.archlinux.org/title/Systemd](https://wiki.archlinux.org/title/Systemd)
@@ -75,6 +96,12 @@ This will create a file in `/etc/systemd/system/unit.d` (or similar)
 
 ```
 systemctl edit [--full] UNIT
+```
+
+#### Show unit dependencies
+
+```
+man systemd-analyze
 ```
 
 ## Targets
