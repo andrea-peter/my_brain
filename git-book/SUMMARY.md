@@ -1,6 +1,7 @@
 # Table of contents
 
 * [Acronyms](README.md)
+* [uv](uv.md)
 * [7DTD mods](7dtd-mods.md)
 * [Ansible](ansible.md)
 * [Bash](bash.md)
