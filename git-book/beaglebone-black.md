@@ -10,6 +10,10 @@
 
 [https://github.com/beagleboard/bb-imager/tree/main](https://github.com/beagleboard/bb-imager/tree/main)
 
+### Toolchain
+
+TODO: something from here [https://gitlab.arm.com/tooling/gnu-toolchains-for-arm](https://gitlab.arm.com/tooling/gnu-toolchains-for-arm)
+
 ## How to
 
 ### Flash image to SD card
