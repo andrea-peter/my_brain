@@ -135,6 +135,26 @@ Image recipes can be found with:
 ls meta*/recipes*/images/*.bb
 ```
 
+## Tmp files
+
+{% code overflow="wrap" %}
+```
+build...conf/
+├─ cache/
+├─ conf/
+├─ downloads/
+├─ sstate-cache/
+└─ tmp-glibc/
+   └─ work/
+      └─ <machine>/
+         └─ <recipe>/
+            └─ <version>/
+               └─ temp/
+                  └─ log.do_<step>  # Log of executed step
+                  └─ run.do_<step>  # Step execution script
+```
+{% endcode %}
+
 ## Tips and tricks
 
 * Share cache: [https://bootlin.com/blog/yocto-sharing-the-sstate-cache-and-download-directories/](https://bootlin.com/blog/yocto-sharing-the-sstate-cache-and-download-directories/)
