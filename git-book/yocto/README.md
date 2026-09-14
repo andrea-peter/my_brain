@@ -1,3 +1,24 @@
+---
+layout:
+  width: default
+  title:
+    visible: true
+  description:
+    visible: false
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: true
+  metadata:
+    visible: true
+  tags:
+    visible: true
+  actions:
+    visible: true
+---
+
 # Yocto
 
 {% hint style="info" %}
@@ -48,6 +69,14 @@ Convert `.dot` to graphical file with `graphviz`
 ```
 dot -Tps task-depends.dot task-depends.ps
 ```
+
+### Only build one recipe
+
+{% code overflow="wrap" %}
+```
+bitbake <recipe>
+```
+{% endcode %}
 
 ### Clean temporary file (tmp) for given recipe
 
