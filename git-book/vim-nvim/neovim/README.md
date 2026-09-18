@@ -17,6 +17,8 @@ layout:
     visible: true
   actions:
     visible: true
+  anchors:
+    visible: true
 ---
 
 # Neovim
@@ -25,22 +27,29 @@ layout:
 
 ### Standard paths
 
-[https://practical.li/neovim/reference/neovim/standard-path/](https://practical.li/neovim/reference/neovim/standard-path/)
+{% embed url="https://practical.li/neovim/reference/neovim/standard-path/" %}
 
-* **Config**: `~/.cache/nvim/`
+The env variable `NVIM_APPNAME` defines the directory name, by defaults it's `nvim`, this variable allows to have different nvim installation in isolated environments
+
 * **Config**: `~/.config/nvim/`
   * User configs
 * **Data**: `~/.local/share/nvim/`
   * Plugins
+  * Mason environments
 * **Run**: `/tmp/nvim.user/xxx/`
 * **State**: `~/.local/state/nvim/`
   * Logs
   * Sessions
   * Undo data
 
-### Where is[https://luals.github.io/wiki/annotations/](https://luals.github.io/wiki/annotations/)
+#### Print paths
 
-* Mason packages: `<data-path>/mason`
+```vim
+:echo stdpath('config')
+:echo stdpath('data')
+:echo stdpath('run')
+:echo stdpath('state')
+```
 
 ## Mappings
 
@@ -237,3 +246,15 @@ zg
 
 
 ```
+
+## Separate installation environments
+
+See "Standard paths" above
+
+Env variable `NVIM_APPNAME`  defined the `config`, `data` , `run`, `state` paths suffix
+
+```bash
+# Will launch nvim with config in ~/.config/testKK
+NVIM_APPNAME=test nvim
+```
+
