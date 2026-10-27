@@ -1,3 +1,26 @@
+---
+layout:
+  width: default
+  title:
+    visible: true
+  description:
+    visible: false
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: true
+  metadata:
+    visible: true
+  tags:
+    visible: true
+  actions:
+    visible: true
+  anchors:
+    visible: true
+---
+
 # Screen
 
 ## How to
@@ -46,3 +69,11 @@ Esc
 ```
 
 Then `page-up`, `page-down`
+
+### Pass CTRL-A to child process
+
+{% code overflow="wrap" %}
+```
+Ctrl-a a
+```
+{% endcode %}
